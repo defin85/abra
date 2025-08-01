@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(flutter build:*)",
+      "Bash(./gradlew:*)",
+      "Bash(flutter:*)",
+      "Bash(cmd /c \"flutter build apk\")",
+      "Bash(powershell:*)",
+      "Bash(cmd.exe /c \"cd /d C:\\FlutterProject\\abra && flutter build apk\")",
+      "mcp__tavily-server__tavily_extract",
+      "Bash(del \"lib\\features\\visualization\\widgets\\adaptive_chassis_3d.dart\")",
+      "Bash(move:*)",
+      "Bash(rm:*)",
+      "Bash(mv:*)",
+      "mcp__tavily-server__tavily_search",
+      "Bash(cp:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)"
+    ],
+    "deny": []
+  }
+}
