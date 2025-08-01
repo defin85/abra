@@ -133,9 +133,9 @@ void main() {
     });
 
     testWidgets('handles null chassis gracefully', (WidgetTester tester) async {
-      await tester.pumpWidget(MaterialApp(
+      await tester.pumpWidget(const MaterialApp(
         home: Scaffold(
-          body: const SizedBox(
+          body: SizedBox(
             width: 800,
             height: 600,
             child: AdaptiveChassis3D(),

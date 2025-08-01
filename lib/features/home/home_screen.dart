@@ -4,7 +4,7 @@ import '../../providers/project_provider.dart';
 import '../../providers/visualization_settings_provider.dart';
 import '../../providers/measurements_provider.dart';
 import '../visualization/widgets/car_body_2d_view.dart';
-import '../visualization/widgets/adaptive_chassis_3d.dart';
+import '../visualization/widgets/adaptive_chassis_3d_refactored.dart';
 import '../../core/geometry/adaptive_chassis.dart';
 import '../../shared/utils/responsive_utils.dart';
 import '../measurement/measurement_input_screen.dart';

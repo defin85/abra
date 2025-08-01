@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ABRA App Icon Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .icon-wrapper {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .size-label {
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ABRA - Auto Body Repair Assistant</h1>
+        <p>Новая иконка приложения в различных размерах</p>
+        
+        <div class="icon-grid">
+            <div class="icon-item">
+                <div class="icon-wrapper">
+                    <img src="app_icon_new.svg" width="48" height="48" alt="48x48">
+                </div>
+                <span class="size-label">48x48 (Android mdpi)</span>
+            </div>
+            
+            <div class="icon-item">
+                <div class="icon-wrapper">
+                    <img src="app_icon_new.svg" width="72" height="72" alt="72x72">
+                </div>
+                <span class="size-label">72x72 (Android hdpi)</span>
+            </div>
+            
+            <div class="icon-item">
+                <div class="icon-wrapper">
+                    <img src="app_icon_new.svg" width="96" height="96" alt="96x96">
+                </div>
+                <span class="size-label">96x96 (Android xhdpi)</span>
+            </div>
+            
+            <div class="icon-item">
+                <div class="icon-wrapper">
+                    <img src="app_icon_new.svg" width="144" height="144" alt="144x144">
+                </div>
+                <span class="size-label">144x144 (Android xxhdpi)</span>
+            </div>
+            
+            <div class="icon-item">
+                <div class="icon-wrapper">
+                    <img src="app_icon_new.svg" width="192" height="192" alt="192x192">
+                </div>
+                <span class="size-label">192x192 (Android xxxhdpi)</span>
+            </div>
+            
+            <div class="icon-item">
+                <div class="icon-wrapper">
+                    <img src="app_icon_new.svg" width="512" height="512" alt="512x512">
+                </div>
+                <span class="size-label">512x512 (Web)</span>
+            </div>
+        </div>
+        
+        <div style="margin-top: 40px;">
+            <h2>Инструкция по установке</h2>
+            <ol style="text-align: left; max-width: 600px; margin: 0 auto;">
+                <li>Конвертируйте SVG в PNG используя любой онлайн конвертер или графический редактор</li>
+                <li>Сохраните PNG как <code>app_icon_new.png</code> в папке <code>assets/icons/</code></li>
+                <li>Обновите <code>pubspec.yaml</code>:
+                    <pre style="background: #f5f5f5; padding: 10px; border-radius: 5px;">
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon_new.png"
+  adaptive_icon_background: "#4A90E2"
+  adaptive_icon_foreground: "assets/icons/app_icon_new.png"</pre>
+                </li>
+                <li>Запустите команду: <code>flutter pub run flutter_launcher_icons</code></li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

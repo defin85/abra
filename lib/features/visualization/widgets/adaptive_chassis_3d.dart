@@ -47,9 +47,9 @@ class _AdaptiveChassis3DState extends State<AdaptiveChassis3D> {
   double _distance = 500.0;                 // 500 как на скриншоте
   
   // Параметры тестовой камеры
-  double _testAzimuth = math.pi;             // 180° - правильная ориентация
-  double _testElevation = -math.pi / 4;      // -45° - правильный угол
-  int _testUpVector = -1;                    // -1 для правильной ориентации Z вверх
+  final double _testAzimuth = math.pi;             // 180° - правильная ориентация
+  final double _testElevation = -math.pi / 4;      // -45° - правильный угол
+  final int _testUpVector = -1;                    // -1 для правильной ориентации Z вверх
   
   
   // Свободная камера - позиция и ориентация в пространстве  
@@ -89,19 +89,6 @@ class _AdaptiveChassis3DState extends State<AdaptiveChassis3D> {
     super.dispose();
   }
 
-  /// Запускает таймер движения только когда нужно
-  void _startMovementTimer() {
-    if (_movementTimer?.isActive == true) return; // Уже запущен
-    
-    _movementTimer = Timer.periodic(const Duration(milliseconds: 16), (timer) {
-      if (_cameraMode == CameraMode.free && _pressedKeys.isNotEmpty) {
-        _updateCameraMovement();
-      } else {
-        // Останавливаем таймер когда движение не нужно
-        _stopMovementTimer();
-      }
-    });
-  }
 
   /// Останавливает таймер движения для экономии батареи
   void _stopMovementTimer() {
@@ -467,47 +454,6 @@ class _AdaptiveChassis3DState extends State<AdaptiveChassis3D> {
     setState(() {});
   }
 
-  /// Обработка движения мыши в зависимости от нажатой кнопки
-  void _handleMouseMove(Offset delta, int? mouseButton) {
-    const sensitivity = 0.005;
-
-    if (_cameraMode == CameraMode.orbital) {
-      // Орбитальная камера - только левая кнопка мыши
-      if (mouseButton == kPrimaryMouseButton) {
-        setState(() {
-          _azimuth += delta.dx * 0.01;
-          _elevation = (_elevation - delta.dy * 0.01).clamp(-math.pi / 2 + 0.1, math.pi / 2 - 0.1);
-        });
-      }
-    } else {
-      // Свободная камера - разные кнопки мыши
-      if (mouseButton == kPrimaryMouseButton) {
-        // ЛКМ - поворот камеры (взгляд)
-        setState(() {
-          _freeCameraYaw += delta.dx * sensitivity;
-          _freeCameraPitch = (_freeCameraPitch - delta.dy * sensitivity).clamp(-math.pi / 2 + 0.1, math.pi / 2 - 0.1);
-        });
-      } else if (mouseButton == kSecondaryMouseButton) {
-        // ПКМ - движение камеры в плоскости XY
-        final forward = vm.Vector3(
-          math.sin(_freeCameraYaw) * math.cos(_freeCameraPitch),
-          -math.sin(_freeCameraPitch),
-          math.cos(_freeCameraYaw) * math.cos(_freeCameraPitch),
-        );
-        final right = vm.Vector3(math.cos(_freeCameraYaw), 0, -math.sin(_freeCameraYaw));
-        
-        setState(() {
-          _freeCameraPosition += right * delta.dx * 0.5;
-          _freeCameraPosition.y -= delta.dy * 0.5;
-        });
-      } else if (mouseButton == kMiddleMouseButton) {
-        // СКМ - поворот вокруг оси Z (roll)
-        setState(() {
-          _freeCameraRoll += delta.dx * sensitivity;
-        });
-      }
-    }
-  }
 
   /// Универсальная обработка движения мыши
   void _handleUniversalMouseMove(Offset delta, int? buttons, PointerEvent event) {

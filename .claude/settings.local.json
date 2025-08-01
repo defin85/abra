@@ -16,7 +16,9 @@
       "mcp__tavily-server__tavily_search",
       "Bash(cp:*)",
       "Bash(ls:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(start \"\" \"C:\\FlutterProject\\abra\\generate_exact_icon.html\")",
+      "Bash(cmd /c \"C:\\FlutterProject\\abra\\check_icons.bat\")"
     ],
     "deny": []
   }

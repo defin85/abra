@@ -110,15 +110,27 @@ flutter:
 # Configuration for flutter_launcher_icons
 flutter_launcher_icons:
   android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/app_icon.png"
+  
+  # Android adaptive icon settings
+  adaptive_icon_background: "#EC008C"
+  adaptive_icon_foreground: "assets/icons/app_icon.png"
+  
+  # Web settings
   web:
     generate: true
     image_path: "assets/icons/app_icon.png"
-    background_color: "#007ACC"
-    theme_color: "#005a9e"
+    background_color: "#4A90E2"
+    theme_color: "#2E5CB8"
+  
+  # Windows settings
   windows:
     generate: true
     image_path: "assets/icons/app_icon.png"
     icon_size: 48
-  image_path: "assets/icons/app_icon.png"
-  adaptive_icon_background: "#007ACC"
-  adaptive_icon_foreground: "assets/icons/app_icon.png"
+  
+  # Additional platforms
+  macos:
+    generate: true
+    image_path: "assets/icons/app_icon.png"

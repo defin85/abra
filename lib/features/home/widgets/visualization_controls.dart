@@ -13,21 +13,22 @@ class VisualizationControls extends ConsumerWidget {
     return Column(
       children: [
         // Основные переключатели
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 8.0,
           children: [
-            const Text('Режим отображения: '),
+            const Text('Режим: '),
             SegmentedButton<bool>(
               segments: const [
                 ButtonSegment(
                   value: false,
-                  label: Text('Прямые элементы'),
-                  icon: Icon(Icons.square_outlined),
+                  label: Text('Прямые'),
+                  icon: Icon(Icons.square_outlined, size: 16),
                 ),
                 ButtonSegment(
                   value: true,
-                  label: Text('Изогнутые элементы'),
-                  icon: Icon(Icons.waves),
+                  label: Text('Изогнутые'),
+                  icon: Icon(Icons.waves, size: 16),
                 ),
               ],
               selected: {settings.useCurvedElements},

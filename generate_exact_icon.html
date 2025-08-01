@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Exact ABRA Icon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            margin: 10px;
+            cursor: pointer;
+        }
+        button {
+            background: #EC008C;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background: #F35CB5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ABRA Icon Generator - Точная копия вашего SVG</h1>
+        
+        <p>Нажмите на любую иконку для скачивания PNG</p>
+        
+        <div id="svgContainer" style="display:none;">
+            <!-- Ваш оригинальный SVG -->
+            <svg id="originalSvg" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <g>
+                        <linearGradient gradientUnits="userSpaceOnUse" id="SVGID_1_" x1="0.0000038" x2="512" y1="256" y2="256">
+                            <stop offset="0" style="stop-color:#F35CB5"/>
+                            <stop offset="1" style="stop-color:#EC008C"/>
+                        </linearGradient>
+                        <circle cx="256" cy="256" fill="url(#SVGID_1_)" r="256"/>
+                        <linearGradient gradientUnits="userSpaceOnUse" id="SVGID_2_" x1="42.6666679" x2="469.3333435" y1="256.0005188" y2="256.0005188">
+                            <stop offset="0" style="stop-color:#EC008C"/>
+                            <stop offset="1" style="stop-color:#F35CB5"/>
+                        </linearGradient>
+                        <path d="M256,469.3338623c-117.6309357,0-213.3333282-95.7018738-213.3333282-213.3333435    c0-117.6309204,95.7023926-213.333313,213.3333282-213.333313c117.636261,0,213.3333435,95.7024002,213.3333435,213.333313    C469.3333435,373.6319885,373.636261,469.3338623,256,469.3338623z" fill="url(#SVGID_2_)"/>
+                    </g>
+                    <g>
+                        <polygon opacity="0.3" points="185.8154602,294.0677185 206.3381348,314.5925293 322.0453186,198.8853302 301.5226746,178.363205     234.5552063,245.328537   "/>
+                        <polygon opacity="0.3" points="370.5957336,205.5205383 371.4255981,156.5749359 322.4805298,157.4048004     308.5930786,171.2928009 356.7089233,219.4074707   "/>
+                        <path d="M166.5397339,313.3439941c-6.6432037,6.6426697-9.965332,15.349884-9.965332,24.0570679    c0,8.706665,3.3215942,17.4143982,9.964798,24.0570679c6.6432037,6.6442566,15.3509369,9.9658813,24.058136,9.9658813    s17.4149323-3.3216248,24.0582581-9.9658813l12.2030792-12.203186l-48.1136017-48.1168213L166.5397339,313.3439941z" opacity="0.3"/>
+                        <polygon opacity="0.3" points="349.6383972,226.4773254 329.1157227,205.9552002 213.4080048,321.6629333     233.9290619,342.1850586 282.6704102,293.4442749   "/>
+                        <polygon opacity="0.3" points="325.4597473,264.7962646 264.7962646,325.459198 277.0405273,337.7034607 303.9424133,310.8048096     311.0129089,317.8746643 284.1109314,344.7738647 296.2042542,356.8671875 323.1072083,329.9648132 330.1776123,337.0351868     303.2746582,363.9375916 323.3344116,383.9984131 383.9984131,323.3338623   "/>
+                        <polygon opacity="0.3" points="190.9269409,197.7845306 197.9973297,204.8544006 171.0944061,231.7568054     183.1845398,243.8480072 210.0863953,216.9488068 217.1569214,224.0186615 190.2549286,250.9178619 202.5386658,263.2015991     263.2021484,202.5386658 204.6656036,144.0021362 144.0021362,204.6650696 164.0240021,224.6869354   "/>
+                    </g>
+                    <g>
+                        <polygon fill="#FFFFFF" points="177.8154602,286.0677185 198.3381348,306.5925293 314.0453186,190.8853302     293.5226746,170.363205 226.5552063,237.328537   "/>
+                        <polygon fill="#FFFFFF" points="362.5957336,197.5205383 363.4255981,148.5749359 314.4805298,149.4048004     300.5930786,163.2928009 348.7089233,211.4074707   "/>
+                        <path d="M158.5397339,305.3439941c-6.6432037,6.6426697-9.965332,15.349884-9.965332,24.0570679    c0,8.706665,3.3215942,17.4143982,9.964798,24.0570679c6.6432037,6.6442566,15.3509369,9.9658813,24.058136,9.9658813    s17.4149323-3.3216248,24.0582581-9.9658813l12.2030792-12.203186l-48.1136017-48.1168213L158.5397339,305.3439941z" fill="#FFFFFF"/>
+                        <polygon fill="#FFFFFF" points="341.6383972,218.4773254 321.1157227,197.9552002 205.4080048,313.6629333     225.9290619,334.1850586 274.6704102,285.4442749   "/>
+                        <polygon fill="#FFFFFF" points="317.4597473,256.7962646 256.7962646,317.459198 269.0405273,329.7034607     295.9424133,302.8048096 303.0129089,309.8746643 276.1109314,336.7738647 288.2042542,348.8671875 315.1072083,321.9648132     322.1776123,329.0351868 295.2746582,355.9375916 315.3344116,375.9984131 375.9984131,315.3338623   "/>
+                        <polygon fill="#FFFFFF" points="182.9269409,189.7845306 189.9973297,196.8544006 163.0944061,223.7568054     175.1845398,235.8480072 202.0863953,208.9488068 209.1569214,216.0186615 182.2549286,242.9178619 194.5386658,255.2015991     255.2021332,194.5386658 196.6656036,136.0021362 136.0021362,196.6650696 156.0240021,216.6869354   "/>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <div style="text-align: center;">
+                <canvas id="icon1024" width="1024" height="1024" style="width: 256px; height: 256px;"></canvas>
+                <br>1024x1024 (Исходный)
+            </div>
+            <div style="text-align: center;">
+                <canvas id="icon512" width="512" height="512" style="width: 128px; height: 128px;"></canvas>
+                <br>512x512
+            </div>
+            <div style="text-align: center;">
+                <canvas id="icon192" width="192" height="192" style="width: 96px; height: 96px;"></canvas>
+                <br>192x192
+            </div>
+            <div style="text-align: center;">
+                <canvas id="icon48" width="48" height="48"></canvas>
+                <br>48x48
+            </div>
+        </div>
+        
+        <button onclick="downloadAll()">Скачать все размеры</button>
+        
+        <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: left;">
+            <h3>Инструкция:</h3>
+            <ol>
+                <li>Нажмите на размер 1024x1024 или кнопку "Скачать все размеры"</li>
+                <li>Сохраните файл как <code>app_icon.png</code> в папке <code>assets/icons/</code></li>
+                <li>Запустите: <code>flutter pub run flutter_launcher_icons</code></li>
+                <li>Очистите кэш: <code>flutter clean</code></li>
+                <li>Пересоберите приложение: <code>flutter run</code></li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function drawSvgToCanvas(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Конвертируем SVG в data URL
+            const svgElement = document.getElementById('originalSvg');
+            const svgString = new XMLSerializer().serializeToString(svgElement);
+            const svgBlob = new Blob([svgString], {type: 'image/svg+xml;charset=utf-8'});
+            const svgUrl = URL.createObjectURL(svgBlob);
+            
+            const img = new Image();
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, size, size);
+                URL.revokeObjectURL(svgUrl);
+            };
+            img.src = svgUrl;
+            
+            // Добавляем обработчик клика
+            canvas.onclick = function() {
+                canvas.toBlob(function(blob) {
+                    const link = document.createElement('a');
+                    link.download = 'app_icon_' + size + '.png';
+                    link.href = URL.createObjectURL(blob);
+                    link.click();
+                });
+            };
+        }
+        
+        function downloadAll() {
+            const sizes = [1024, 512, 192, 48];
+            sizes.forEach((size, index) => {
+                setTimeout(() => {
+                    const canvas = document.getElementById('icon' + size);
+                    canvas.toBlob(function(blob) {
+                        const link = document.createElement('a');
+                        link.download = size === 1024 ? 'app_icon.png' : 'app_icon_' + size + '.png';
+                        link.href = URL.createObjectURL(blob);
+                        link.click();
+                    });
+                }, index * 200);
+            });
+        }
+        
+        // Рисуем все размеры
+        setTimeout(() => {
+            drawSvgToCanvas('icon1024', 1024);
+            drawSvgToCanvas('icon512', 512);
+            drawSvgToCanvas('icon192', 192);
+            drawSvgToCanvas('icon48', 48);
+        }, 100);
+    </script>
+</body>
+</html>

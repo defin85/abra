@@ -7,14 +7,14 @@ void main() {
     late Widget testWidget;
 
     setUp(() {
-      testWidget = MaterialApp(
+      testWidget = const MaterialApp(
         home: Scaffold(
           body: Stack(
             children: [
               DraggableControlPanel(
                 title: 'Test Panel',
-                initialPosition: const Offset(100, 100),
-                child: const Text('Test Content'),
+                initialPosition: Offset(100, 100),
+                child: Text('Test Content'),
               ),
             ],
           ),
@@ -71,15 +71,15 @@ void main() {
 
     testWidgets('respects screen boundaries when dragging', (WidgetTester tester) async {
       // Create panel at edge of screen
-      final edgeWidget = MaterialApp(
+      const edgeWidget = MaterialApp(
         home: Scaffold(
           body: Stack(
             children: [
               DraggableControlPanel(
                 title: 'Test Panel',
-                initialPosition: const Offset(0, 0),
+                initialPosition: Offset.zero,
                 initialWidth: 200,
-                child: const Text('Test Content'),
+                child: Text('Test Content'),
               ),
             ],
           ),
@@ -121,20 +121,20 @@ void main() {
     });
 
     testWidgets('respects min/max size constraints', (WidgetTester tester) async {
-      final constrainedWidget = MaterialApp(
+      const constrainedWidget = MaterialApp(
         home: Scaffold(
           body: Stack(
             children: [
               DraggableControlPanel(
                 title: 'Test Panel',
-                initialPosition: const Offset(100, 100),
+                initialPosition: Offset(100, 100),
                 initialWidth: 300,
                 initialHeight: 300,
                 minWidth: 250,
                 maxWidth: 350,
                 minHeight: 200,
                 maxHeight: 400,
-                child: const Text('Test Content'),
+                child: Text('Test Content'),
               ),
             ],
           ),

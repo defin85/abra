@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate ABRA Icon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .instructions {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background: #4A90E2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #2E5CB8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ABRA Icon Generator</h1>
+        <p>Нажмите на любую иконку, чтобы скачать её в формате PNG</p>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <div style="text-align: center;">
+                <canvas id="icon512" width="512" height="512"></canvas>
+                <br>512x512
+            </div>
+            <div style="text-align: center;">
+                <canvas id="icon192" width="192" height="192"></canvas>
+                <br>192x192
+            </div>
+            <div style="text-align: center;">
+                <canvas id="icon144" width="144" height="144"></canvas>
+                <br>144x144
+            </div>
+            <div style="text-align: center;">
+                <canvas id="icon96" width="96" height="96"></canvas>
+                <br>96x96
+            </div>
+            <div style="text-align: center;">
+                <canvas id="icon72" width="72" height="72"></canvas>
+                <br>72x72
+            </div>
+            <div style="text-align: center;">
+                <canvas id="icon48" width="48" height="48"></canvas>
+                <br>48x48
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>Инструкция:</h3>
+            <ol>
+                <li>Нажмите на нужный размер иконки выше для скачивания</li>
+                <li>Сохраните 512x512 как <code>app_icon_new.png</code> в <code>assets/icons/</code></li>
+                <li>Запустите в терминале:
+                    <pre>flutter pub get
+flutter pub run flutter_launcher_icons</pre>
+                </li>
+                <li>Для ручного обновления скопируйте файлы в соответствующие папки:
+                    <ul>
+                        <li>48x48 → android/app/src/main/res/mipmap-mdpi/launcher_icon.png</li>
+                        <li>72x72 → android/app/src/main/res/mipmap-hdpi/launcher_icon.png</li>
+                        <li>96x96 → android/app/src/main/res/mipmap-xhdpi/launcher_icon.png</li>
+                        <li>144x144 → android/app/src/main/res/mipmap-xxhdpi/launcher_icon.png</li>
+                        <li>192x192 → android/app/src/main/res/mipmap-xxxhdpi/launcher_icon.png</li>
+                        <li>192x192 → web/icons/Icon-192.png</li>
+                        <li>512x512 → web/icons/Icon-512.png</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        
+        <button onclick="downloadAll()">Скачать все размеры</button>
+    </div>
+
+    <script>
+        function drawIcon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            const scale = size / 512;
+            
+            // Градиентный фон
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#4A90E2');
+            gradient.addColorStop(1, '#2E5CB8');
+            
+            // Круглый фон
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Сохраняем состояние и трансформируем для центрирования
+            ctx.save();
+            ctx.translate(size/2, size/2);
+            ctx.scale(scale, scale);
+            
+            // Рисуем каркас
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 16;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            
+            // Горизонтальные линии
+            ctx.globalAlpha = 0.95;
+            ctx.beginPath();
+            ctx.moveTo(-140, -50);
+            ctx.lineTo(140, -50);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(-140, 50);
+            ctx.lineTo(140, 50);
+            ctx.stroke();
+            
+            ctx.globalAlpha = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(-100, 0);
+            ctx.lineTo(100, 0);
+            ctx.stroke();
+            
+            // Вертикальные линии
+            ctx.globalAlpha = 0.9;
+            ctx.beginPath();
+            ctx.moveTo(-120, -70);
+            ctx.lineTo(-120, 70);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(120, -70);
+            ctx.lineTo(120, 70);
+            ctx.stroke();
+            
+            ctx.globalAlpha = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(-40, -50);
+            ctx.lineTo(-40, 50);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(40, -50);
+            ctx.lineTo(40, 50);
+            ctx.stroke();
+            
+            // Контрольные точки
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = '#FF6B6B';
+            
+            const points = [
+                [-120, -50], [-120, 50], [120, -50], [120, 50]
+            ];
+            
+            points.forEach(([x, y]) => {
+                ctx.beginPath();
+                ctx.arc(x, y, 12, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Центральная точка
+            ctx.fillStyle = '#FFE66D';
+            ctx.beginPath();
+            ctx.arc(0, 0, 10, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Текст ABRA (только для больших размеров)
+            if (size >= 144) {
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold ' + (48 * scale) + 'px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.globalAlpha = 0.9;
+                ctx.fillText('ABRA', 0, 120);
+            }
+            
+            ctx.restore();
+            
+            // Добавляем обработчик клика для скачивания
+            canvas.onclick = function() {
+                canvas.toBlob(function(blob) {
+                    const link = document.createElement('a');
+                    link.download = 'abra_icon_' + size + '.png';
+                    link.href = URL.createObjectURL(blob);
+                    link.click();
+                });
+            };
+        }
+        
+        function downloadAll() {
+            const sizes = [512, 192, 144, 96, 72, 48];
+            sizes.forEach((size, index) => {
+                setTimeout(() => {
+                    const canvas = document.getElementById('icon' + size);
+                    canvas.toBlob(function(blob) {
+                        const link = document.createElement('a');
+                        link.download = 'abra_icon_' + size + '.png';
+                        link.href = URL.createObjectURL(blob);
+                        link.click();
+                    });
+                }, index * 200); // Задержка между скачиваниями
+            });
+        }
+        
+        // Рисуем все иконки
+        drawIcon('icon512', 512);
+        drawIcon('icon192', 192);
+        drawIcon('icon144', 144);
+        drawIcon('icon96', 96);
+        drawIcon('icon72', 72);
+        drawIcon('icon48', 48);
+    </script>
+</body>
+</html>
